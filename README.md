@@ -95,7 +95,7 @@ state "名称" as 状態名
 
 ## Extension Settings
 
-* `statediagram2markdowntables.nSwitchCoveragesDepth`: N-スイッチカバレッジ表を作成する深さを指定できます（デフォルト＝1）
+* `stateDiagram2MarkdownTables.nSwitchCoveragesDepth`: N-スイッチカバレッジ表を作成する深さを指定できます（デフォルト＝1）
 
 ## Known Issues
 

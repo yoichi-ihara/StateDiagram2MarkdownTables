@@ -251,7 +251,7 @@ function changeTextToMarkdown (plantUmlText) {
   // N スイッチカバレッジを作成する（深さは設定に従う。デフォルト１）
   let switchCoverages = [];
   // 設定情報を取得
-  const config = vscode.workspace.getConfiguration('statediagram2markdowntables');
+  const config = vscode.workspace.getConfiguration('stateDiagram2MarkdownTables');
   const maxDepth = config.get('nSwitchCoveragesDepth', 1);
   for (let i = 0; i <= maxDepth; i++) {
     const result = changeToNSwitchCoverage(diaglamInfo, i);

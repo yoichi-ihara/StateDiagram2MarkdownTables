@@ -1,6 +1,6 @@
 {
-  "name": "statediagram2markdowntables",
-  "displayName": "StateDiagram2MarkdownTables",
+  "name": "state-diagram-2-markdown-tables",
+  "displayName": "State Diagram 2 Markdown Tables",
   "description": "Change State Diagram of PlantUML to State Transition Table and N-switch Coverage of Markdown Table",
   "version": "0.1.0",
   "repository": {
@@ -18,15 +18,15 @@
   "contributes": {
     "commands": [
       {
-        "command": "statediagram2markdowntables.changeAndCopy",
+        "command": "stateDiagram2MarkdownTables.changeAndCopy",
         "title": "State Diagram 2 Markdown Tables And Copy"
       }
     ],
     "configuration": [
       {
-        "title": "StateDiagram2MarkdownTables",
+        "title": "State Diagram 2 MarkdownTables configuration",
         "properties": {
-          "statediagram2markdowntables.nSwitchCoveragesDepth": {
+          "stateDiagram2MarkdownTables.nSwitchCoveragesDepth": {
             "type": "number",
             "default": 1,
             "markdownDescription": "Specifies the depth of N-switch Converages Tables(the number of depth is the number of tables)"
