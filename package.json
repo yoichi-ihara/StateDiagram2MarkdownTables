@@ -3,9 +3,10 @@
   "displayName": "State Diagram 2 Markdown Tables",
   "description": "Change State Diagram of PlantUML to State Transition Table and N-switch Coverage of Markdown Table",
   "version": "0.1.0",
+  "publisher": "i9i",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yoichi-ihara/StateDiagram2MarkdownTables.git"
+    "url": "https://github.com/yoichi-ihara/StateDiagram2MarkdownTables.git"
   },
   "engines": {
     "vscode": "^1.76.0"
@@ -13,6 +14,8 @@
   "categories": [
     "Other"
   ],
+  "icon": "images/icon.png",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
