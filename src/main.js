@@ -180,7 +180,7 @@ function makeNSwitchCoverage(diaglamInfo, depth, coverageTable) {
 
   console.log(table);
 
-  if (depth === 0) {
+  if (depth <= 0) {
     // 最下層まで来たら戻す
     return table;
   }
