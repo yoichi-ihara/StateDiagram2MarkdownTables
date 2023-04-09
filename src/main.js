@@ -22,9 +22,6 @@ function parseStateDiaglam(umlText) {
     return null;
   }
 
-  // 要らない部分（色や形の指定）を削除（以前のパースの位置を守りたいため）
-  // matches.forEach(match => match.splice(2,1));
-
   // alias 定義を適用（定義に従ってパースした結果の全部を置き換え）
   const aliases = {};
   states.forEach(alias => {
@@ -49,14 +46,15 @@ function parseStateDiaglam(umlText) {
 
   matches.forEach(match => {
     if (match[START_STATE_POS] === STATE_POINT_MARK) {
-      // 開始の [*] は先頭
+      // 開始の [*] の要素は先頭に寄せる
       orderMapState[match[END_STATE_POS]] = -1;
       orderMapEvents[match[EVENT_POS]] = -1;
+      orderMapState[STATE_POINT_MARK] = -2;
     }
     else if (match[END_STATE_POS] === STATE_POINT_MARK) {
-      // 終了の [*] は末尾
-      orderMapState[match[START_STATE_POS]] = Number.MAX_VALUE;
-      orderMapEvents[match[EVENT_POS]] = Number.MAX_VALUE;
+      // 終了の [*] の要素は末尾に寄せる
+      orderMapState[match[START_STATE_POS]] = match.length;
+      orderMapEvents[match[EVENT_POS]] = match.length;
     }
     // 後は最初に出てきた順番
     if (orderMapState[match[START_STATE_POS]] == null) {
@@ -72,54 +70,34 @@ function parseStateDiaglam(umlText) {
 
   // パースした結果を↑に従ってソート
   matches.sort((a, b) => {
-    let a2 = a[START_STATE_POS]
-    let b2 = b[START_STATE_POS];
-    let isFirst = true;
-
-    if (a2 === b2) {
-      isFirst = false;
-      a2 = a[END_STATE_POS];
-      b2 = b[END_STATE_POS]
-    }
-
-    if (a2 !== b2) {
-      // 開始か終了かに応じて [*] の前後判定
-      if (a2 === STATE_POINT_MARK) {
-        return isFirst ? -1 : 1;
+    let orderA, orderB;
+    for (const pos of [START_STATE_POS, EVENT_POS, END_STATE_POS]) {
+      if (pos === EVENT_POS) {
+        orderA = orderMapEvents[a[pos]];
+        orderB = orderMapEvents[b[pos]];
       }
-      else if (b2 === STATE_POINT_MARK) {
-        return isFirst ? 1 : -1;
+      else {
+        orderA = orderMapState[a[pos]];
+        orderB = orderMapState[b[pos]];
+      }
+  
+      if (orderA !== orderB) {
+        // 違っているところが出たら実際の比較を行う（最後まで来たらそれで比較する）
+        break;
       }
     }
 
-    if (!isFirst) {
-      // 開始が一致している場合はイベントでソート判定
-      return orderMapEvents[a[EVENT_POS]] > orderMapEvents[b[EVENT_POS]] ? 1 : -1;
-    }
-
-    // 開始が一致してない場合に開始状態でソート判定
-    if (orderMapState[a2] > orderMapState[b2]) {
-      return 1;
-    }
-    else {
-      return -1;
-    }
+    // 順番判定
+    return orderA - orderB;
   });
+
 
   // 開始のステートを全部ピックアップ（ソート済みなのでその順番に従う）
   const startStates = Array.from(new Set(matches.map(match => match[START_STATE_POS])));
 
   // イベントを全部ピックアップ＋ソート
   const events = Array.from(new Set(matches.map(match => match[EVENT_POS]))).sort((a, b) => {
-    if (orderMapEvents[a] > orderMapEvents[b]) {
-      return 1;
-    }
-    else if (orderMapEvents[a] < orderMapEvents[b]) {
-      return -1;
-    }
-    else {
-      return 0;
-    }
+    return orderMapEvents[a] - orderMapEvents[b];
   });
 
 
