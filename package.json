@@ -1,7 +1,7 @@
 {
   "name": "state-diagram-2-markdown-tables",
   "displayName": "State Diagram 2 Markdown Tables",
-  "description": "Change State Diagram of PlantUML to State Transition Table and N-switch Coverage of Markdown Table",
+  "description": "Change State Diagram of PlantUML/Mermaid to State Transition Table and N-switch Coverage of Markdown Table",
   "version": "0.1.0",
   "publisher": "i9i",
   "repository": {

@@ -1,9 +1,9 @@
-# State Diagram of PlantUML to State and N-switch Coverage Tables of Markdown and Copy it
+# State Diagram of PlantUML/Mermaid to State and N-switch Coverage Tables of Markdown and Copy it
 
 PlantUML/Mermaid 形式で書いた状態遷移図から、Markdown 形式の状態遷移表と N-スイッチカバレッジ表を作成してクリップボードにコピーする拡張機能です。
 
 ## Features
-次のような PlantUML 形式での状態遷移図のテキストから（例は PlantUMLのもの）
+次のような PlantUML/Mermaid 形式での状態遷移図のテキストから（例は PlantUMLのもの）
 
 ```plantuml
 @startuml
@@ -76,12 +76,23 @@ PlantUML/Mermaid 形式で書いた状態遷移図から、Markdown 形式の状
 |開始|了解|終了|閉じる|[*]|
 |終了|戻る|開始|了解|終了|
 
-表での並び順は遷移図での並び順をなるべく意識しています。
+表での並び順は遷移図での並び順をなるべく意識しています。  
 （先端・終端の `[*]` に関わるものについては、なるべく最初・最後に並べるようにしています） 
+
+## How to install
+
+https://github.com/yoichi-ihara/StateDiagram2MarkdownTables/releases
+
+から VSIX ファイルを入手できますので、
+
+https://mseeeen.msen.jp/how-to-install-extension-in-visual-studio-code-with-vsix/
+
+の手順でインストールしてください。
+
 
 ## Usage
 
-変換したい PlantUML/Mermaid の状態遷移図のテキストを選択した状態で `State Diagram 2 Markdown Tables And Copy` コマンドを実行して下さい。  
+変換したい PlantUML/Mermaid の状態遷移図のテキストを選択した状態でコマンドパレットから `State Diagram 2 Markdown Tables And Copy` コマンドを実行して下さい。  
 すると、変換したテキストがクリップボードにコピーされますので、使いたいところで貼り付けてください。
 
 PlantUML/Mermaid の状態遷移は
@@ -102,7 +113,7 @@ PlantUML/Mermaid の状態遷移は
 また
 
 ```
-state "名称" as 状態名
+state "別名" as 状態名
 ```
 
 で状態の別名を指定している場合には、変換後の名称でも別名の方が使われます。
@@ -119,6 +130,8 @@ state "名称" as 状態名
 - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
 
 どちらも [Java](http://java.com/en/download/) と [Graphviz](https://www.graphviz.org/) のインストールが必要になります。
+
+Markdown Preview Enhanced は Mermaid 図のプレビューにも対応しています。
 
 ## Extension Settings
 
