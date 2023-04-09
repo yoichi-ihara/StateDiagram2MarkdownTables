@@ -1,9 +1,9 @@
 # State Diagram of PlantUML to State and N-switch Coverage Tables of Markdown and Copy it
 
-PlantUML 形式で書いた状態遷移図から、Markdown 形式の状態遷移表と N-スイッチカバレッジ表を作成してクリップボードにコピーする拡張機能です。
+PlantUML/Mermaid 形式で書いた状態遷移図から、Markdown 形式の状態遷移表と N-スイッチカバレッジ表を作成してクリップボードにコピーする拡張機能です。
 
 ## Features
-次のような PlantUML 形式での状態遷移図のテキストから
+次のような PlantUML 形式での状態遷移図のテキストから（例は PlantUMLのもの）
 
 ```plantuml
 @startuml
@@ -77,13 +77,14 @@ PlantUML 形式で書いた状態遷移図から、Markdown 形式の状態遷�
 |終了|戻る|開始|了解|終了|
 
 表での並び順は遷移図での並び順をなるべく意識しています。
+（先端・終端の `[*]` に関わるものについては、なるべく最初・最後に並べるようにしています） 
 
 ## Usage
 
-変換したい PlantUML の状態遷移図のテキストを選択した状態で `State Diagram 2 Markdown Tables And Copy` コマンドを実行して下さい。  
+変換したい PlantUML/Mermaid の状態遷移図のテキストを選択した状態で `State Diagram 2 Markdown Tables And Copy` コマンドを実行して下さい。  
 すると、変換したテキストがクリップボードにコピーされますので、使いたいところで貼り付けてください。
 
-PlantUML の状態遷移は
+PlantUML/Mermaid の状態遷移は
 
 ```
 状態１ -> 状態２ : イベント
@@ -105,6 +106,8 @@ state "名称" as 状態名
 ```
 
 で状態の別名を指定している場合には、変換後の名称でも別名の方が使われます。
+
+上記以外の状態遷移に関する記法、例えば合成状態、履歴、フォーク、条件分岐といったものには対応していません。
 
 ## Requirements
 
