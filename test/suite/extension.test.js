@@ -30,11 +30,13 @@ suite('Extension Test Suite', () => {
   test('Crlf test', async () => {
     assert.ok(await testCopyResultIsEqualToFile('test-simple-crlf.md', 'result-simple1.md', true), 'test-simple-crlf.md');
   });
-  test('depth test', async () => {
+  test('Depth test', async () => {
     assert.ok(await testCopyResultIsEqualToFile('test-depth0.md', 'result-depth0.md', true, 0), 'test-depth0.md');
     assert.ok(await testCopyResultIsEqualToFile('test-depth2.md', 'result-depth2.md', true, 2), 'test-depth2.md');
   });
-
+  test('Format test', async () => {
+    assert.ok(await testCopyResultIsEqualToFile('test-format1.md', 'result-format1.md', true, 0), 'test-depth0.md');
+  });
 
 });
 
