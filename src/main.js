@@ -119,7 +119,7 @@ function parseStateDiaglam(umlText) {
 
 
 // 状態遷移表を作成する
-function changeToStateTransitionTable(diaglamInfo) {
+function convertToStateTransitionTable(diaglamInfo) {
 
   if (!diaglamInfo) {
     return null;
@@ -189,7 +189,7 @@ function makeNSwitchCoverage(diaglamInfo, depth, coverageTable) {
   return makeNSwitchCoverage(diaglamInfo, depth - 1, table);
 }
 
-function changeToNSwitchCoverage(diaglamInfo, depth) {
+function convertToNSwitchCoverage(diaglamInfo, depth) {
 
   if (!diaglamInfo) {
     return null;
@@ -209,7 +209,7 @@ function changeToNSwitchCoverage(diaglamInfo, depth) {
   return tableText + coverageTable.map(line => `|${line.join('|')}|`).join('\n') + '\n';
 }
 
-function changeTextToMarkdown (plantUmlText) {
+function convertTextToMarkdown (plantUmlText) {
   if (!plantUmlText) {
     return;
   }
@@ -224,7 +224,7 @@ function changeTextToMarkdown (plantUmlText) {
   }
 
   // 状態遷移表を作成する
-  const stateTransitionTable = changeToStateTransitionTable(diaglamInfo);
+  const stateTransitionTable = convertToStateTransitionTable(diaglamInfo);
 
   // N スイッチカバレッジを作成する（深さは設定に従う。デフォルト１）
   let switchCoverages = [];
@@ -232,7 +232,7 @@ function changeTextToMarkdown (plantUmlText) {
   const config = vscode.workspace.getConfiguration('stateDiagram2MarkdownTables');
   const maxDepth = config.get('nSwitchCoveragesDepth', 1);
   for (let i = 0; i <= maxDepth; i++) {
-    const result = changeToNSwitchCoverage(diaglamInfo, i);
+    const result = convertToNSwitchCoverage(diaglamInfo, i);
     if (result) {
       switchCoverages.push(result);
     }
@@ -258,7 +258,7 @@ async function main() {
     return;
   }
 
-  const outputText = changeTextToMarkdown(editor.document.getText(curSelection));
+  const outputText = convertTextToMarkdown(editor.document.getText(curSelection));
 
   if (outputText) {
     // テキストがあるならクリップボードへ送る
@@ -269,5 +269,5 @@ async function main() {
 
 }
 
-module.exports.changeTextToMarkdown = changeTextToMarkdown;
+module.exports.convertTextToMarkdown = convertTextToMarkdown;
 module.exports.main = main;

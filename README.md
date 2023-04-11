@@ -1,11 +1,172 @@
-# State Diagram of PlantUML/Mermaid to State and N-switch Coverage Tables of Markdown and Copy it
+# Convert State Diagram of PlantUML/Mermaid format to State and N-switch Coverage Tables of Markdown format, and Copy it
 
-PlantUML/Mermaid 形式で書いた状態遷移図から、Markdown 形式の状態遷移表と N-スイッチカバレッジ表を作成してクリップボードにコピーする拡張機能です。
+---
+
+* [English](#english)
+
+* [Japanese](#japanese)
+
+---
+
+# English
+
+This is the extension of Visual Studio Code that creates a state transition table and N-switch coverage table in Markdown format from a state diagram written in PlantUML/Mermaid format and copies them to the clipboard.
+
+## Features
+
+From the text of a state transition diagram in PlantUML/Mermaid format as follows (examples are from PlantUML)
+
+```
+@startuml
+[*] -right-> started : open
+started -right-> finished : submit
+finished -left-> started : back
+finished -right-> [*] : close
+@enduml
+```
+
+You can create following state transition and N-switch coverage tables in Markdown table format 
+
+```markdown
+## Transition Table
+
+| |open|submit|back|close|
+| :----: | :----: | :----: | :----: | :----: |
+|[*]|started|N/A|N/A|N/A|
+|started|N/A|finished|N/A|N/A|
+|finished|N/A|N/A|started|[*]|
+
+## 0 Switch Coverage
+
+|state|event|state|
+| :----: | :----: | :----: |
+|[*]|open|started|
+|started|submit|finished|
+|finished|back|started|
+|finished|close|[*]|
+
+## 1 Switch Coverage
+
+|state|event|state|event|state|
+| :----: | :----: | :----: | :----: | :----: |
+|[*]|open|started|submit|finished|
+|started|submit|finished|back|started|
+|started|submit|finished|close|[*]|
+|finished|back|started|submit|finished|
+```
+
+The rendering result of state diagram of PlantUML is used to illustrate below.
+
+![State Diaglam](./images/PlantUML_en.png)
+
+It means that, from the above diagram, you can create tables below.
+
+## Transition Table
+
+| |open|submit|back|close|
+| :----: | :----: | :----: | :----: | :----: |
+|[*]|started|N/A|N/A|N/A|
+|started|N/A|finished|N/A|N/A|
+|finished|N/A|N/A|started|[*]|
+
+## 0 Switch Coverage
+
+|state|event|state|
+| :----: | :----: | :----: |
+|[*]|open|started|
+|started|submit|finished|
+|finished|back|started|
+|finished|close|[*]|
+
+## 1 Switch Coverage
+
+|state|event|state|event|state|
+| :----: | :----: | :----: | :----: | :----: |
+|[*]|open|started|submit|finished|
+|started|submit|finished|back|started|
+|started|submit|finished|close|[*]|
+|finished|back|started|submit|finished|
+
+The order in tables is as close as possible to the order in the text of diagram.  
+(Items related to `[*]` are placed at the beginning or end of the table as much as possible)
+
+## How to install
+
+You can get the VSIX file from the below
+
+https://github.com/yoichi-ihara/StateDiagram2MarkdownTables/releases
+
+and install it.
+
+## Usage
+
+The usage is as follows:
+
+1. Select the text of  PlantUML/Mermaid state diagram that you wish to convert
+1. Execute the `State Diagram 2 Markdown Tables And Copy` command from the command palette
+1. The converted text will be copied to the clipboard, and you can paste it wherever you want to use it.
+
+This extension supports the below format of the state diagram text of PlantUML/Mermaid.
+
+```
+state1 --> state2 : event
+```
+
+If there is no event text, as in the following format, this extension will not convert it.
+(On the one hand, this format can be used to exclude starting/ending states from tables!)
+
+```
+state1 --> state2
+```
+
+Also, If the alias of the state is specified in the following format, the alias will also be used in the converted name.
+```
+state "alias_name" as state_name
+```
+
+Formats other than the above, such as composite states, history, fork, and conditional choice, are not supported.
+
+## Requirements
+
+No requirements.
+
+However, if you want to preview state diagram of PlantUML in Visual Studio Code, please include following extensions.
+
+- [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+- [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
+
+Both require [Java](http://java.com/en/download/) and [Graphviz](https://www.graphviz.org/) installed.
+
+Markdown Preview Enhanced also supports previewing Mermaid diagrams.
+
+## Extension Settings
+
+* `stateDiagram2MarkdownTables.nSwitchCoveragesDepth`: Specifies the depth of N-switch Converages Tables(the number of depth is the number of tables)
+
+## Known Issues
+
+None at this time.
+
+## Release Notes
+
+### 0.1.1
+
+English documentation is now available.
+
+### 0.1.0
+
+Initial release
+
+---
+
+# Japanese
+
+PlantUML/Mermaid 形式で書いた状態遷移図から、Markdown 形式の状態遷移表と N-スイッチカバレッジ表を作成してクリップボードにコピーする Visual Studio Code の拡張機能です。
 
 ## Features
 次のような PlantUML/Mermaid 形式での状態遷移図のテキストから（例は PlantUMLのもの）
 
-```plantuml
+```
 @startuml
 [*] -right-> 開始 : 開く
 開始 -right-> 終了 : 了解
@@ -92,8 +253,11 @@ https://mseeeen.msen.jp/how-to-install-extension-in-visual-studio-code-with-vsix
 
 ## Usage
 
-変換したい PlantUML/Mermaid の状態遷移図のテキストを選択した状態でコマンドパレットから `State Diagram 2 Markdown Tables And Copy` コマンドを実行して下さい。  
-すると、変換したテキストがクリップボードにコピーされますので、使いたいところで貼り付けてください。
+使い方は次の通りです。
+
+1. 変換したい PlantUML/Mermaid の状態遷移図のテキストを選択します
+1. コマンドパレットから `State Diagram 2 Markdown Tables And Copy` コマンドを実行します
+1. 変換されたテキストがクリップボードにコピーされますので、使いたいところで貼り付けてください
 
 PlantUML/Mermaid の状態遷移は
 
@@ -142,6 +306,10 @@ Markdown Preview Enhanced は Mermaid 図のプレビューにも対応してい
 今のところ特になし
 
 ## Release Notes
+
+### 0.1.1
+
+英語ドキュメントを整備
 
 ### 0.1.0
 
