@@ -13,7 +13,7 @@ const ALIAS_AS_POS = 2;
 // UML テキストの parse
 function parseStateDiaglam(umlText) {
   // state1 -> state2 形式の遷移定義のパース（色や形の指定は対応）
-  let matches = umlText.split(/\r\n|\n/).map(line => line.match(/([^ ]+) +-+[^ ]*-*> +([^ ]+)( +:|: +| +: +)([^ ]+)/)).filter(match => match);
+  let matches = umlText.split(/\r\n|\n/).map(line => line.match(/([^ ]+) +-+[^ ]*-*> +([^ ]+)( +:|: +| +: +)([^ ].+[^ ])/)).filter(match => match);
   // state による alias 指定のパース
   let states = umlText.split(/\r\n|\n/).map(line => line.match(/state +"([^"]+)" +as +([^ ]+)/)).filter(match => match);
 

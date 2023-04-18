@@ -149,13 +149,17 @@ None at this time.
 
 ## Release Notes
 
+### 0.1.2
+
+Fixed to handle event names that contain spaces.
+
 ### 0.1.1
 
 English documentation is now available.
 
 ### 0.1.0
 
-Initial release
+Initial release.
 
 ---
 
@@ -306,6 +310,10 @@ Markdown Preview Enhanced は Mermaid 図のプレビューにも対応してい
 今のところ特になし
 
 ## Release Notes
+
+### 0.1.2
+
+event 名に空白を含む場合も扱えるように修正
 
 ### 0.1.1
 
