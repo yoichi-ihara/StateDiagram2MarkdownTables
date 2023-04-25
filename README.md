@@ -149,6 +149,10 @@ None at this time.
 
 ## Release Notes
 
+### 0.1.3
+
+Fixed a bug of 0.1.2, that cannot handle event names of less than 2 characters.
+
 ### 0.1.2
 
 Fixed to handle event names that contain spaces.
@@ -310,6 +314,10 @@ Markdown Preview Enhanced は Mermaid 図のプレビューにも対応してい
 今のところ特になし
 
 ## Release Notes
+
+### 0.1.3
+
+0.1.2 で２文字以下のイベント名が扱えなくなっていたのを修正
 
 ### 0.1.2
 

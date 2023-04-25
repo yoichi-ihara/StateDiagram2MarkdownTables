@@ -14,6 +14,7 @@ suite('Extension Test Suite', () => {
     assert.ok(await testCopyResultIsEqualToFile('test-1line.md', 'result-1line.md', true), 'test-1line.md');
     assert.ok(await testCopyResultIsEqualToFile('test-simple1.md', 'result-simple1.md', true), 'test-simple1.md');
     assert.ok(await testCopyResultIsEqualToFile('test-simple2.md', 'result-simple2.md', true), 'test-simple2.md');
+    assert.ok(await testCopyResultIsEqualToFile('test-simple3.md', 'result-simple3.md', true), 'test-simple3.md');
   });
   test('Complex test', async () => {
     assert.ok(await testCopyResultIsEqualToFile('test-complex1.md', 'result-complex1.md', true), 'test-complex1.md');

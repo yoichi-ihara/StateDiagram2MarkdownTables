@@ -2,7 +2,7 @@
   "name": "state-diagram-2-markdown-tables",
   "displayName": "State Diagram 2 Markdown Tables",
   "description": "Convert State Diagram of PlantUML/Mermaid format to State and N-switch Coverage Tables of Markdown format, and Copy it",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "i9i",
   "repository": {
     "type": "git",

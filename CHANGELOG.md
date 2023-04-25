@@ -15,3 +15,7 @@ All notable changes to the "State Diagram 2 Markdown Tables" extension will be d
 ## [0.1.2] - 2023-04-18
 
 - Fixed to handle event names that contain spaces.
+
+## [0.1.3] - 2023-04-25
+
+- Fixed a bug of 0.1.2, that cannot handle event names of less than 2 characters.
