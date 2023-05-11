@@ -149,6 +149,10 @@ None at this time.
 
 ## Release Notes
 
+### 1.0.1
+
+Publish to Marketplace.
+
 ### 0.1.3
 
 Fixed a bug of 0.1.2, that cannot handle event names of less than 2 characters.
@@ -314,6 +318,10 @@ Markdown Preview Enhanced は Mermaid 図のプレビューにも対応してい
 今のところ特になし
 
 ## Release Notes
+
+### 1.0.1
+
+マーケットプレイスで公開
 
 ### 0.1.3
 
