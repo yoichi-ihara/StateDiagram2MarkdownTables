@@ -23,3 +23,7 @@ All notable changes to the "State Diagram 2 Markdown Tables" extension will be d
 ## [1.0.1] - 2023-05-11
 
 - Publish to Marketplace.
+
+## [1.0.2] - 2023-05-11
+
+- Change the description of the installation source from the vsix file to Marketplace.

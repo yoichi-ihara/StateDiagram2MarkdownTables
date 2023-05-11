@@ -92,11 +92,7 @@ The order in tables is as close as possible to the order in the text of diagram.
 
 ## How to install
 
-You can get the VSIX file from the below
-
-https://github.com/yoichi-ihara/StateDiagram2MarkdownTables/releases
-
-and install it.
+You can install this extension from [Marketplace](https://marketplace.visualstudio.com/items?itemName=prop-tech-plus.state-diagram-2-markdown-tables).
 
 ## Usage
 
@@ -148,6 +144,10 @@ Markdown Preview Enhanced also supports previewing Mermaid diagrams.
 None at this time.
 
 ## Release Notes
+
+### 1.0.2
+
+Change the description of the installation source from the vsix file to Marketplace.
 
 ### 1.0.1
 
@@ -254,14 +254,7 @@ PlantUML/Mermaid 形式で書いた状態遷移図から、Markdown 形式の状
 
 ## How to install
 
-https://github.com/yoichi-ihara/StateDiagram2MarkdownTables/releases
-
-から VSIX ファイルを入手できますので、
-
-https://mseeeen.msen.jp/how-to-install-extension-in-visual-studio-code-with-vsix/
-
-の手順でインストールしてください。
-
+[Marketplace](https://marketplace.visualstudio.com/items?itemName=prop-tech-plus.state-diagram-2-markdown-tables)からインストール可能です。
 
 ## Usage
 
@@ -318,6 +311,10 @@ Markdown Preview Enhanced は Mermaid 図のプレビューにも対応してい
 今のところ特になし
 
 ## Release Notes
+
+### 1.0.2
+
+インストール元の説明を vsix ファイルから Marketplace に変更
 
 ### 1.0.1
 
