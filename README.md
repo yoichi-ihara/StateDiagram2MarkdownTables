@@ -145,6 +145,10 @@ None at this time.
 
 ## Release Notes
 
+### 1.0.3
+
+Fixed a bug that the sorting position of the end mark "[*]" was not correct when the number of events was large.
+
 ### 1.0.2
 
 Change the description of the installation source from the vsix file to Marketplace.
@@ -311,6 +315,10 @@ Markdown Preview Enhanced は Mermaid 図のプレビューにも対応してい
 今のところ特になし
 
 ## Release Notes
+
+### 1.0.3
+
+イベント数が多い場合に、エンドマーク「[*]」のソート位置がおかしくなる不具合を修正しました。
 
 ### 1.0.2
 

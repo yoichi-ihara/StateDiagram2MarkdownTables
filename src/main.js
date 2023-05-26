@@ -53,8 +53,8 @@ function parseStateDiaglam(umlText) {
     }
     else if (match[END_STATE_POS] === STATE_POINT_MARK) {
       // 終了の [*] の要素は末尾に寄せる
-      orderMapState[match[START_STATE_POS]] = match.length;
-      orderMapEvents[match[EVENT_POS]] = match.length;
+      orderMapState[match[START_STATE_POS]] = matches.length;
+      orderMapEvents[match[EVENT_POS]] = matches.length;
     }
     // 後は最初に出てきた順番
     if (orderMapState[match[START_STATE_POS]] == null) {
